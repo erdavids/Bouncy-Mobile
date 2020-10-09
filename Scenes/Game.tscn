@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+
+[node name="Game" type="Node2D"]
+
+[node name="Collisions" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions/StaticBody2D"]
+polygon = PoolVector2Array( 0.146027, 1.08978, -0.055542, 1023.24, 575.739, 1023.64, 575.806, 0.889008, 4.44522, 1.35921, -7.64566, -16.1054, 585.949, -15.568, 586.554, 1039.5, -16.7139, 1036.47, -12.0791, -14.6275 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collisions/StaticBody2D"]
+polygon = PoolVector2Array( -30.0445, 227.808, 188.119, 178.85, 197.445, 353.709, -25.4798, 354.508 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Collisions/StaticBody2D"]
+position = Vector2( 347, 381.357 )
+polygon = PoolVector2Array( -71.2722, 175.414, 236.218, 234.679, 233.642, 355.785, -25.4798, 354.508 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Collisions"]
+color = Color( 0.662745, 0.988235, 0.917647, 1 )
+polygon = PoolVector2Array( -82.2009, 236.666, 188.978, 177.991, 197.165, 354.493, -84.7348, 353.86 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Collisions"]
+position = Vector2( 407.983, 383.075 )
+color = Color( 0.662745, 0.988235, 0.917647, 1 )
+polygon = PoolVector2Array( -134.832, 171.978, 198.432, 238.566, 197.165, 354.493, -84.7348, 353.86 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 280.668, 815.442 )
