@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Goal.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 33.8564
 
 [node name="Game" type="Node2D"]
 
@@ -29,3 +34,20 @@ polygon = PoolVector2Array( -134.832, 171.978, 198.432, 238.566, 197.165, 354.49
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 280.668, 815.442 )
+
+[node name="Goal" type="Area2D" parent="."]
+modulate = Color( 0.431373, 0.670588, 0.396078, 1 )
+position = Vector2( 287.735, 73.0075 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Goal"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource( 1 )
+[connection signal="body_entered" from="Player" to="Player" method="_on_Player_body_entered"]
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_Goal_body_entered"]
